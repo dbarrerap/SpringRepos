@@ -13,5 +13,5 @@ public class Catalogo implements Serializable {
     private String descripcion;
     private double precio;
     private double descuento;
-
+    private int credito;
 }
