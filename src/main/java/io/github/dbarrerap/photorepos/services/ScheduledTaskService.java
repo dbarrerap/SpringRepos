@@ -13,7 +13,7 @@ public class ScheduledTaskService {
     @Autowired
     CatalogoRepository catalogoRepository;
 
-    @Scheduled(cron = "0/15 * * * * *")
+    // @Scheduled(cron = "0/15 * * * * *")
     public void activate() {
         long count = catalogoRepository.count();
         System.out.println("Scheduled Task count: " + count);
@@ -22,7 +22,7 @@ public class ScheduledTaskService {
         response.put("message", "Scheduled Task ready");
     }
 
-    @Scheduled(cron = "0/30 * * * * *")
+    // @Scheduled(cron = "0/30 * * * * *")
     public void deleteByName() {
         System.out.println("Buscando registros...");
         catalogoRepository.findAllByNombre("Nombre").forEach(catalogo -> delete(catalogo.getId()));
