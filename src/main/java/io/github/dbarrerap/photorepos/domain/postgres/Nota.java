@@ -3,28 +3,22 @@ package io.github.dbarrerap.photorepos.domain.postgres;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
 
-@Entity
-@Table(name = "db_usuario")
 @Data
-public class User implements Serializable {
+@Table(name = "db_notas")
+@Entity
+public class Nota implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String email;
-    private String password;
-    private boolean active;
-
+    private String nombre;
+    private String descripcion;
     @CreationTimestamp
-    @Column(name = "created_at")
-    private Date createdAt;
-
-    @ManyToMany
-    private Set<Role> roles;
+    @Column(name = "fecha_creacion")
+    private Date created_at;
+    @ManyToOne
+    private User user;
 }
